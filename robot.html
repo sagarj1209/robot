@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Robot</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .demo {
+        height: 100vh;
+        width: 100%;
+    }
+
+    .demo model-viewer {
+
+        height: 100%;
+        width: 100%;
+    }
+    .btn-container{
+        position:absolute;
+        bottom:50px;
+        width:100%;
+        text-align: center;
+    }
+    button{
+        border:none;
+        border-radius: 50%;
+        background:#edda73;
+        height:40px;
+        width:150px;
+        margin:5px 15px;
+        cursor:pointer;
+        font-weight: bold;
+        font-size:15px;
+    }
+    button:focus{
+        outline:none;
+    }
+</style>
+
+<body>
+    <div class="demo">
+        <model-viewer id="model" src="robot.glb" auto-rotate camera-controls skybox-image="stadium.hdr" animation-name="Running"
+            autoplay ar></model-viewer>
+    <div class="btn-container">
+        <button type="button" onclick="stop()">STOP</button>
+        <button type="button" onclick="run()">RUN</button>
+        <button type="button" onclick="wave()">WAVE</button>
+    </div>    
+    </div>
+
+    <script>
+        var modelViewer = document.getElementById('model');
+
+        function stop(){
+            modelViewer.animationName ='none';
+        }
+        function run(){
+            modelViewer.animationName ='Running';
+        }
+        function wave(){
+            modelViewer.animationName ='Wave';
+        }
+    </script>
+</body>
+
+</html>
